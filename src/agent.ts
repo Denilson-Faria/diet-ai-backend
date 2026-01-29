@@ -1,9 +1,8 @@
 import 'dotenv/config';
 import OpenAI from "openai";
 import fs from "fs";
-import { buildsystemPrompt, buildDocsPrompt, buildUserPrompt } from "./prompt";
-import type { DietPlanRequest } from "./types";
-
+import { buildsystemPrompt, buildDocsPrompt, buildUserPrompt } from "./prompt.js"; 
+import type { DietPlanRequest } from "./types.js";  
 
 const openai = new OpenAI({
    apiKey: process.env.OPENAI_API_KEY as string,
@@ -25,8 +24,7 @@ export async function* generateDietPlan(input: DietPlanRequest) {
    for await (const chunk of stream) {
       const delta = chunk.choices[0]?.delta?.content;
       if (delta) yield delta;
-      //yeld interoompe a exeecuçãio e retorna o vaor de onde parou.
-      //é como se fosse um return, mas guarda o estado da função
+      
    }
 
 
