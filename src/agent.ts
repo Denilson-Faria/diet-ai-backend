@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import OpenAI from "openai";
 import fs from "fs";
-import { buildsystemPrompt, buildDocsPrompt, buildUserPrompt } from "./prompt.js"; 
-import type { DietPlanRequest } from "./types.js";  
+import { buildsystemPrompt, buildDocsPrompt, buildUserPrompt } from "./prompt"; 
+import type { DietPlanRequest } from "./types";  
 
 const openai = new OpenAI({
    apiKey: process.env.OPENAI_API_KEY as string,
