@@ -9,11 +9,11 @@ const app = Fastify({
 async function start() {
   
   await app.register(cors, {
-    origin: true, 
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-    credentials: true,
-  });
+  origin: process.env.FRONTEND_URL || "https://dietron.netlify.app/", 
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+});
 
   app.get("/teste", async () => {
     return { status: "ok", message: "API is running!" };
